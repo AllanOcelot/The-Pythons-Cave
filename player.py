@@ -27,6 +27,8 @@ playerY = 0
 #Player Position Z = Z (Layer , think, up, down,) positon of player. Used when going upstairs, downstairs in buildings etc.
 playerZ = 0
 
+#Create the player's inventory
+inventory = {"One large sword" , "An empty coin purse", "Despair!"}
 
 
 
@@ -57,6 +59,14 @@ def getPlayerZ():
     return playerZ
 
 
+def getPlayerInventory():
+    index = 0
+    results = ""
+    for item in inventory:
+        results += str(index) + " " +  str(item) + "  \n"
+        index = index + 1
+
+    return results
 
 
 
@@ -68,4 +78,4 @@ class player():
     posY = getPlayerY()
     posZ = getPlayerZ()
 
-
+    inventory  = getPlayerInventory()
