@@ -9,6 +9,13 @@
 
 
 
+#Build the tile type, we will pass this into a map maker/viewer at a later date to build the world
+class tile():
+    def __init__(self):
+        self.posX = 0; #Horizontal
+        self.posY = 0; #Vertical
+        self.posZ = 0; #Layer
+        self.type = 0; #Link to a type - containing a description and graphic , sound etc
 
 ### Declare the different types of tiles here
 class tile_type():
@@ -20,17 +27,14 @@ class tile_type():
         self.passable = True
 
 class tile_soil(tile_type):
-    def __init__(self):
+    def __init__(self , posX , posY):
         self.name = "Soil"
         self.description = "A flat piece of earth."
         self.passable = True
+        self.posX = posX
+        self.posY = posY
 
 
-#Build the tile type, we will pass this into a map maker/viewer at a later date to build the world
-class tile():
-    def __init__(self):
-        self.posX = 0; #Horizontal
-        self.posY = 0; #Vertical
-        self.posZ = 0; #Layer
-        self.type = 0; #Link to a type - containing a description and graphic , sound etc
+
+
 

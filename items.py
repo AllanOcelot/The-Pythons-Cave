@@ -26,7 +26,7 @@ class dagger(weapon):
 ########## Gold (Coin, Money)
 ########## Coin is the currency our game will use. Each item will have a worth in Coin.
 class coin():
-    def __init(self):
+    def __init__(self):
         self.name = "A Coin"
         self.description = "A small, golden coin."
         self.worth = 1
