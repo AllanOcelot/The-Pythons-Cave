@@ -41,6 +41,7 @@ class screen():
                 indexY = indexY + 1
 
 
+
     def __init__(self , title, width, height):
         self.title = title
 
@@ -57,6 +58,8 @@ class screen():
                 if event.type == QUIT:
                     pygame.quit()
                     sys.exit()
+
+
 
             self.drawMap(self.canvas)
             pygame.display.update();
