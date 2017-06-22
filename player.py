@@ -12,6 +12,8 @@
 
 """
 
+import items
+
 
 #Let's instigate all of our variables here
 
@@ -24,12 +26,15 @@ playerX = 0
 #Players Postion Y = Vertical position of player
 playerY = 0
 
-#Player Position Z = Z (Layer , think, up, down,) positon of player. Used when going upstairs, downstairs in buildings etc.
+#Player Position Z = Z (Layer , think, up, down,) position of player. Used when going upstairs, downstairs in buildings etc.
 playerZ = 0
 
 #Create the player's inventory
 inventory = {"One large sword" , "An empty coin purse", "Despair!"}
 
+#Player health , max health is 100, but we will limit this in our 'Setter' function
+health = 100
+alive = True
 
 
 
@@ -59,23 +64,50 @@ def getPlayerZ():
     return playerZ
 
 
-def getPlayerInventory():
-    index = 0
-    results = ""
-    for item in inventory:
-        results += str(index) + " " +  str(item) + "  \n"
-        index = index + 1
+def setPlayerHealth(healthInput):
+    if(healthInput > 100):
+        health = 100
+    else:
+        health = healthInput
 
-    return results
+    if(healthInput == 0):
+        health = 0
+        alive = False
 
+def getPlayerHealth():
+    return health
+
+####################
+###
+####################
 
 
 
 """ Build the player class """
 class player():
-    name = getPlayerName()
-    posX = getPlayerX()
-    posY = getPlayerY()
-    posZ = getPlayerZ()
+    def __init__(self, name, health, playerPosX, playerPosY , playerPosZ ):
+        self.name = name
+        self.health = health
+        self.posX = playerPosX
+        self.posY = playerPosY
+        self.posZ = playerPosZ
+        self.inventory = {items.rock(), items.dagger()}
 
-    inventory  = getPlayerInventory()
+
+    def getPlayerInventory(self):
+        index = 0
+
+        #The String we return
+        results = ""
+
+        if(len(self.inventory) < 2):
+            results += "You don't seem to be carrying too much, only..."
+        if(len(self.inventory) > 2):
+            results += "You are carrying a few things in your pockets... \n"
+
+
+        for item in self.inventory:
+            results += str(index) + " " + str(item) + "  \n"
+            index = index + 1
+
+        return results
