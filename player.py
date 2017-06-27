@@ -29,9 +29,6 @@ playerY = 0
 #Player Position Z = Z (Layer , think, up, down,) position of player. Used when going upstairs, downstairs in buildings etc.
 playerZ = 0
 
-#Create the player's inventory
-inventory = {"One large sword" , "An empty coin purse", "Despair!"}
-
 #Player health , max health is 100, but we will limit this in our 'Setter' function
 health = 100
 alive = True
@@ -91,7 +88,7 @@ class player():
         self.posX = playerPosX
         self.posY = playerPosY
         self.posZ = playerPosZ
-        self.inventory = {items.rock(), items.dagger()}
+        self.inventory = {items.rock(), items.dagger(), items.sword(), items.bow()}
 
 
     def getPlayerInventory(self):
@@ -99,12 +96,6 @@ class player():
 
         #The String we return
         results = ""
-
-        if(len(self.inventory) < 2):
-            results += "You don't seem to be carrying too much, only..."
-        if(len(self.inventory) > 2):
-            results += "You are carrying a few things in your pockets... \n"
-
 
         for item in self.inventory:
             results += str(index) + " " + str(item) + "  \n"

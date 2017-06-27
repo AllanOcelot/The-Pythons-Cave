@@ -19,7 +19,7 @@ gameState = "Splash"
 
 
 #When our game loads, start the main game window
-gameWindow = main_game_window.main("Title here", "Splash", 700 , 700)
+gameWindow = main_game_window.main("Title here", "Splash", 1000 , 800)
 
 if(gameState == "Splash"):
    print("Game should fire a new Game window type. Passing the argument 'Splash' to it.  ")
